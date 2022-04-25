@@ -1,0 +1,22 @@
+// ==========================================================================
+// Imports
+// ==========================================================================
+@import 'utils/variables';
+@import 'utils/mixins';
+@import 'components/banner';
+
+// ==========================================================================
+// Basic definitions
+// ==========================================================================
+
+.tv-trade-in-container {
+ color: black;
+ padding: 5px;
+ border: 1.4px solid #136ff2;
+ margin: 10px 0px;
+ border-radius: 2px;
+}
+
+.tv-trade-in-container strong {
+ font-family: SamsungOne700, Arial, Helvetica, sans-serif;
+}
