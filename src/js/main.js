@@ -200,9 +200,19 @@ cheillondon.targetBoilerplate = (function () {
 		},
 
 		trackElementMutations: function () {
+			const spreadsheetSkus = [
+    "QE85QN900ATXXU","QE75QN900ATXXU","QE65QN900ATXXU","QE85QN800ATXXU","QE75QN800ATXXU","QE65QN800ATXXU","QE75QN700ATXXU","QE65QN700ATXXU","QE55QN700ATXXU",
+
+    "QE85QN95AATXXU","QE75QN95AATXXU","QE65QN95AATXXU","QE55QN95AATXXU","QE85QN94CATXXU","QE75QN94AATXXU","QE65QN94AATXXU","QE55QN94AATXXU","QE50QN94AATXXU","QE43QN94AATXXU","QE98QN90AATXXU","QE85QN90AATXXU","QE75QN90AATXXU","QE65QN90AATXXU","QE55QN90AATXXU","QE50QN90AATXXU","QE43QN90AATXXU","QE85QN85AATXXU","QE75QN85AATXXU","QE65QN85AATXXU","QE55QN85AATXXU",
+
+    "QE85QN900BTXXU","QE75QN900BTXXU","QE65QN900BTXXU","QE85QN800BTXXU","QE75QN800BTXXU","QE65QN800BTXXU","QE75QN700BTXXU","QE65QN700BTXXU","QE55QN700BTXXU",
+
+    "QE85QN95BATXXU","QE75QN95BATXXU","QE65QN95BATXXU","QE55QN95BATXXU","QE85QN90BATXXU","QE75QN90BATXXU","QE65QN90BATXXU","QE55QN90BATXXU","QE50QN90BATXXU","QE43QN90BATXXU","QE85QN85BATXXU","QE75QN85BATXXU","QE65QN85BATXXU","QE55QN85BATXXU"
+    ];
 			 const cartWrappers = document.querySelectorAll('.cart-item__services');
 				cartWrappers.forEach((cartWrapper) => {
 					const tradeInContainer = cartWrapper.parentElement.querySelector('.cart-item__services');
+					const cartSku = cartWrapper.parentElement.querySelector('.cart-item__sku').innerText;
 					// Select the node that will be observed for mutations
 							const targetNode = tradeInContainer
 
@@ -213,7 +223,7 @@ cheillondon.targetBoilerplate = (function () {
 							const callback = function(mutationsList, observer) {
 											// Use traditional 'for loops' for IE 11
 											for(const mutation of mutationsList) {
-															if (mutation.type === 'childList') {
+															if (mutation.type === 'childList' && cartSku.includedIn(spreadsheetSkus)) {
 																			mutation.target.parentElement.style.display = 'none'
 															}
 															else if (mutation.type === 'attributes') {
