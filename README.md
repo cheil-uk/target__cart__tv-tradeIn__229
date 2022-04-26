@@ -12,5 +12,26 @@ Simple Gulp, Sass and JS boiletplate
 
 ## Test
 
-Use additional QA parameters of Adobe Target (see above)
-Such as: https://www.samsung.com/ie/smartphones/all-smartphones/?galaxy-s+galaxy-z&at_preview_token=mCC5Cr9vqdC4qmcTlXfiQXXoF8PgTBKc0I00Y3g6O2U%3D&at_preview_index=1_1&at_preview_listed_activities_only=true
+## Background:
+
+Having caught up with legal, to be in with a chance of being allowed to run this promo, we will need to display an additional disclaimer in the basket when trade-up is added, to make sure customers understand they are not receiving any trade-in value for their TV.
+
+The only way we will be able to achieve this is to use target, so below are the two new requirements for the basket:
+
+## Trigger 1 - as already briefed:
+
+Condition - No trade-up promo added to basket
+
+Target action – Hide ‘Add trade-in’ component
+
+## Trigger 2 – additional request:
+
+Condition – trade-up added to basket
+
+Target action – display the following message:
+
+Please note: The discount you receive is an incentive to recycle and to purchase a new Samsung television; it is not a trade-in value for the recycled TV. Recycled TVs are non-returnable and have a zero value. If you return your purchased TV for a refund (for any reason) you will not receive any amount or value for your recycled TV.
+
+## Target name :
+
+Local:AB:SEUK220419:IM:Cart:TV Trade In:229
