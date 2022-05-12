@@ -43,6 +43,12 @@ cheillondon.targetBoilerplate = (function () {
 					main.trackElementMutations();
 					main.appendNewStyle();
 
+					$(document).on('change', function() {
+						setTimeout(() => {
+							main.trackElementMutations();
+						}, 1000)
+					});
+
 				} else {
 					console.log('no jquery')
 					_self.doEverythingTimeout();
@@ -117,7 +123,7 @@ cheillondon.targetBoilerplate = (function () {
 											const spreadsheetSkuValue = spreadsheetSkus[skus];
 															if ( currentCartSku === spreadsheetSkuValue ) {
 																			if (wrapperMessaging === null ) {
-																							cartWrapper.style.display = 'none'
+																							cartWrapper.querySelector('.service-item').style.display = 'none'
 																			} else {
 																							const paragraph = document.createElement('p');
 																							paragraph.innerText = termsandconditions;
@@ -223,12 +229,13 @@ cheillondon.targetBoilerplate = (function () {
 							const callback = function(mutationsList, observer) {
 											// Use traditional 'for loops' for IE 11
 											for(const mutation of mutationsList) {
-															if (mutation.type === 'childList' && cartSku.includedIn(spreadsheetSkus)) {
+															if (mutation.type === 'childList' && cartSku.includes(spreadsheetSkus)) {
+																// console.log(mutation.target.parentElement)
 																			mutation.target.parentElement.style.display = 'none'
 															}
-															else if (mutation.type === 'attributes') {
-																			console.log('And element was modified');
-															}
+															// else if (mutation.type === 'attributes') {
+															// 				console.log('And element was modified');
+															// }
 											}
 							};
 
