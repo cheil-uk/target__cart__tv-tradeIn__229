@@ -123,7 +123,10 @@ cheillondon.targetBoilerplate = (function () {
 											const spreadsheetSkuValue = spreadsheetSkus[skus];
 															if ( currentCartSku === spreadsheetSkuValue ) {
 																			if (wrapperMessaging === null ) {
-																							cartWrapper.querySelector('.service-item').style.display = 'none'
+																							// cartWrapper.querySelector('.service-item').style.display = 'none'
+																							const tradeInContainer = cartWrapper.querySelector('.service-item');
+																							tradeInContainer.querySelector('.service-item__name').innerText = 'Trade-Up';
+																							tradeInContainer.querySelector('.service-item__description').innerText = 'TV Trade-up'
 																			} else {
 																							const paragraph = document.createElement('p');
 																							paragraph.innerText = termsandconditions;
@@ -134,7 +137,7 @@ cheillondon.targetBoilerplate = (function () {
 																							font-weight: bold;
 																							font-family: 'SamsungOne700';
 																							`
-																							tradeInName.innerText = "Trade Up"
+																							tradeInName.innerText = "Trade-Up"
 																							tradeInMessage.innerText = "Your trade-up discount has been successfully applied"
 																							wrapperMessaging.append(paragraph);
 																			}
