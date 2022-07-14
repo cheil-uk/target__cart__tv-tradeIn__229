@@ -198,13 +198,12 @@ cheillondon.targetBoilerplate = (function () {
 			const continueBtn = document.querySelector(".order-summary__btn")
 			addTagging(continueBtn,{
 				"data-omni-type"  : "microsite",
-				"data-omni"       : `uk:228:cart:tvtradeup:${continueBtn.innerText}`,
 				"ga-ac"           : "pd buying tool",
 				"ga-ca"           : "option input"
 			})
 
 			continueBtn.onclick = () => {
-					tagging(continueBtn.getAttribute('data-omni'));
+					tagging(continueBtn.getAttribute('data-omni-type'));
 				}
 		},
 
