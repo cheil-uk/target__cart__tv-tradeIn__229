@@ -39,7 +39,7 @@ cheillondon.targetBoilerplate = (function () {
 				if (window.$) {
 					console.log('doEverythingTimeout - jQuery loaded');
 					main.kickoff();
-					main.tagging();
+					// main.tagging();
 					main.trackElementMutations();
 					main.appendNewStyle();
 
